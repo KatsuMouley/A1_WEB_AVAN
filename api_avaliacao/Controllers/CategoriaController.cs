@@ -21,12 +21,14 @@ public class CategoriaController : ControllerBase
     }
 
     [HttpGet("listar")]
+    [Authorize]
     public IActionResult Listar()
     {
         return Ok(_categoriaRepository.Listar());
     }
 
     [HttpPost("cadastrar")]
+    [Authorize]
     public IActionResult Cadastrar([FromBody] Categoria categoria)
     {
         _categoriaRepository.Cadastrar(categoria);

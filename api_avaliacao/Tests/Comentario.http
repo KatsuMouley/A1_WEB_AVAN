@@ -1,0 +1,24 @@
+@url_base = http://localhost:5003/api/comentarios
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiZXhwIjoxNzUwMTIwMzUzfQ.qE1QHEVyxnUlQWBK7oxWCdNvmkoSXObVLYZF9LVxLvA
+
+### comentar
+POST {{url_base}}/comentar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "texto" : "bla bla bla bla bla",
+    "itemId" : 1
+}
+
+### Listar comentarios
+GET {{url_base}}/listar
+Authorization: Bearer {{token}}
+
+### Listar comentarios de um item em especifico
+GET {{url_base}}/listar/item/1
+Authorization: Bearer {{token}}
+
+### Deletar comentario por id
+DELETE {{url_base}}/delete/{1}
+Authorization: Bearer {{token}}

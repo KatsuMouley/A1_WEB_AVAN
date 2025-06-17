@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using api_avaliacao.Data.Interfaces;
 using api_avaliacao.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -44,6 +45,7 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpGet("listar")]
+    [Authorize]
     public IActionResult Listar()
     {
         return Ok(_usuarioRepository.Listar());

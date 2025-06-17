@@ -22,6 +22,7 @@ public class ItemController : ControllerBase
     }
 
     [HttpPost("cadastrar")]
+    [Authorize]
     public IActionResult Cadastrar([FromBody] Item item)
     {
         item.Categoria = _categoriaRepository.BuscarCategoriaPorId(item.CategoriaId);
@@ -30,9 +31,12 @@ public class ItemController : ControllerBase
     }
 
     [HttpGet("listar")]
+    [Authorize]
     public IActionResult Listar()
     {
         return Ok(_itemRepository.Listar());
     }
+
+    
 
 }
